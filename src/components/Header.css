@@ -1,0 +1,125 @@
+.header {
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    background-color: white;
+    z-index: 10;
+    top: 0;
+    box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+}
+
+.header-left {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header-input {
+    display: flex;
+    align-items: center;
+    background-color: #eff2f5;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 1000px;
+}
+
+.header-left > img {
+    height: 40px;
+}
+
+.header-input > input {
+    border: none;
+    background-color: transparent;
+    outline-width: 0;
+}
+
+.header-input > input:focus {
+    outline: none;
+}
+
+.header-menu {
+    display: flex;
+    margin: 0 10px;
+    justify-content: space-between;
+}
+
+.header-item > .MuiSvgIcon-root {
+    color: gray;
+}
+
+.header-item--active > .MuiSvgIcon-root {
+    color: #2e81f4;
+}
+
+.header-item--active {
+    border-bottom: 4px solid #2e81f4;
+}
+
+.header-item:hover > .MuiSvgIcon-root {
+    color: #2e81f4;
+}
+
+.header-item {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.header-item:hover {
+    background-color: #eff2f5;
+    border-radius: 10px;
+    border-bottom: none;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+}
+
+.header-info > h4 {
+    margin-left: 10px;
+}
+
+.header-right {
+    display: flex;
+}
+
+.menu-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-icon:hover {
+    background-color: #eff2f5;
+    border-radius: 10px;
+    border-bottom: none;
+}
+
+@media only screen and (max-width: 1110px) {
+    .header-input > input {
+        display: none;
+    }
+    .flag-icon {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .header-info {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .header-item {
+        display: none;
+    }
+    .menu-icon {
+        display: flex;
+    }
+}

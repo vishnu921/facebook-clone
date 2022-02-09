@@ -1,7 +1,7 @@
 import './App.css';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-
+import Feed from './components/Feed/Feed';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar'
 function App() {
   return (
     <div className="app">
@@ -9,6 +9,7 @@ function App() {
 
       <div className="main-body">
         <Sidebar />
+        <Feed />
       </div>
     </div>
   );

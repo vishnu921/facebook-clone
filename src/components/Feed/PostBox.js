@@ -5,14 +5,26 @@ import './PostBox.css';
 import VideocamIcon from "@material-ui/icons/Videocam"
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import { useStateValue } from '../context/StateProvider';
+import db from '../../firebase';
+import firebase from 'firebase/compat/app';
 
 function PostBox() {
 
     const [input, setInput] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const [{ user }, dispatch] = useStateValue();
 
     const handleSubmit = e => {
         e.preventDefault();
+
+        db.collection('posts').add({
+            message: input,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            profilePic: user.photoURL,
+            username: user.displayName,
+            image: imageUrl
+        });
 
         setInput('');
         setImageUrl('');
@@ -20,9 +32,9 @@ function PostBox() {
 
   return <div className='post-box'>
     <div className="post-box-top">
-        <Avatar />
+        <Avatar src={user.photoURL} />
         <form action="">
-            <input value={input} onChange={(e) => setInput(e.target.value)} className="post-message-input" placeholder={`What's on your mind?`} />
+            <input value={input} onChange={(e) => setInput(e.target.value)} className="post-message-input" placeholder={`What's on your mind, ${user.displayName} ?`} />
 
             <input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder='image URL (optional)' />
 

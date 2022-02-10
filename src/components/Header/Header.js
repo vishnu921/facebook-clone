@@ -12,8 +12,12 @@ import ForumIcon from "@material-ui/icons/Forum";
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useStateValue } from '../context/StateProvider';
 
 function Header() {
+
+  const [{ user }] = useStateValue();
+
   return <div className='header'>
       <div className="header-left">
           <img src="/fb-logo.svg" alt="fb-logo"/>
@@ -46,8 +50,8 @@ function Header() {
       
       <div className="header-right">
           <div className="header-info">
-              <Avatar />
-              <h4>Vishnu Amola</h4>
+              <Avatar src={user.photoURL}/>
+              <h4>{user.displayName}</h4>
           </div>
           <IconButton>
               <AddIcon />

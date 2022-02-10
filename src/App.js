@@ -1,5 +1,6 @@
 import './App.css';
 import Login from './auth/login/Login';
+import { useStateValue } from './components/context/StateProvider';
 import Feed from './components/Feed/Feed';
 import Widgets from './components/Feed/Widgets';
 import Header from './components/Header/Header';
@@ -7,7 +8,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
 
-  const user = null;
+  const [{ user }, dispatch] = useStateValue();
 
   return (
     <div className="app">
